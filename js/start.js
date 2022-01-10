@@ -1,4 +1,10 @@
 function onLoad() {
+	if (sessionStorage.getItem('status') != 'loggedIn') {
+		backLogin();
+	}
+	document.getElementById(
+		'welcome'
+	).innerHTML = `Vítejte ${sessionStorage.getItem('name')}`;
 	let btn = document.getElementById('theme');
 	btn.addEventListener('click', function () {
 		let darkThemeEnabled = document
@@ -14,14 +20,9 @@ function onLoad() {
 	}
 }
 
-async function logIn() {
-	let name = document.getElementById('name').value;
-	let password = document.getElementById('password').value;
-
-	let url = location.href + 'login/login';
+async function backLogin() {
+	let url = location.replace('/');
 	let body = {};
-	body.name = name;
-	body.password = password;
 	let response = await fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(body),
@@ -31,17 +32,5 @@ async function logIn() {
 	if (data.stav != 'ok') {
 		alert(data.chyba);
 	}
-	if (data.token == 'err') {
-		alert('Špatné heslo');
-		return;
-	}
-	if (data.stav == 'ok') {
-		sessionStorage.setItem('status', 'loggedIn');
-		sessionStorage.setItem('name', name);
-		location.href = 'start';
-	}
-	//TODO if(sessionStorage.getItem("status") != loggedIn)
-}
-async function register() {
-	location.href = 'register';
+	return;
 }

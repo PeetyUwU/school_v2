@@ -28,6 +28,7 @@ function zpracovaniPozadavku(req, res) {
 			let s = fs.readFileSync('./html/register.html').toString();
 			res.end(s);
 		}
+		//*verify
 		if (req.url.startsWith('/verify')) {
 			verify(req, res);
 		} else if (req.url.endsWith('css')) {
@@ -36,18 +37,18 @@ function zpracovaniPozadavku(req, res) {
 			});
 			let s = fs.readFileSync('./css' + req.url).toString();
 			res.end(s);
-		} //*verify
-		else if (req.url == '/script.js') {
+		} else if (req.url.endsWith('.js')) {
 			res.writeHead(200, {
 				'Content-type': 'application/json',
 			});
-			s = fs.readFileSync('./js/script.js').toString();
+			s = fs.readFileSync(`./js` + req.url).toString();
 			res.end(s);
-		} else if (req.url == '/register.js') {
+		}
+		if (req.url == '/start') {
 			res.writeHead(200, {
-				'Content-type': 'application/json',
+				'Content-type': 'text/html',
 			});
-			s = fs.readFileSync('./js/register.js').toString();
+			let s = fs.readFileSync('./html/start.html').toString();
 			res.end(s);
 		} else if (req.url == '/background.jpg') {
 			res.writeHead(200, {
