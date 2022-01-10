@@ -10,7 +10,7 @@ function hash(heslo) {
 	let hashing = heslo + '§ny.a@OwO=/';
 	return crypto.createHash('sha256').update(hashing).digest('hex');
 }
-function token() {
+function GetToken() {
 	return Math.round(Math.random() * 100000)
 		.toString(36)
 		.substring(0);
@@ -26,7 +26,7 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 		let token;
 		for (let f of file) {
 			if (name == f.name && pass == f.password) {
-				token = token();
+				token = GetToken();
 			}
 		}
 		res.writeHead(200, {

@@ -20,7 +20,10 @@ async function logIn() {
 	if (data.token == 'err') {
 		alert('Špatné heslo');
 		return;
+	} else {
+		sessionStorage.setItem('status', 'loggedIn');
 	}
+	//TODO if(sessionStorage.getItem("status") != loggedIn)
 }
 async function register() {
 	location.href = 'register';
