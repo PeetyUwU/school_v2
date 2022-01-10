@@ -42,11 +42,30 @@ header {
 	justify-content: center;
 	align-items: center;
 }
-.container {
+main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 80%;
+}
+.login {
+	max-width: 600px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+
+	border: solid 5px var(--br);
+	border-radius: 30px;
+	box-shadow: 0 0 50px var(--br);
+}
+img {
+	grid-column: 2;
+
+	max-width: 100%;
+	max-height: 100%;
 }
 footer {
 	min-height: 10%;
@@ -86,25 +105,6 @@ footer {
 	margin: 10px;
 }
 
-.main {
-	max-width: 600px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-
-	justify-content: center;
-	align-items: center;
-	padding: 40px;
-
-	border: solid 5px var(--br);
-	border-radius: 30px;
-	box-shadow: 0 0 50px var(--br);
-}
-img {
-	grid-column: 2;
-
-	max-width: 100%;
-	max-height: 100%;
-}
 body.xmas .snowflake {
 	display: inline-block;
 	color: var(--snow);
