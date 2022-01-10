@@ -74,3 +74,7 @@ async function register() {
 		alert(data.chyba);
 	}
 }
+
+async function login() {
+	location.replace('/');
+}

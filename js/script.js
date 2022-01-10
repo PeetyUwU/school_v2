@@ -32,7 +32,10 @@ async function logIn() {
 		alert(data.chyba);
 	}
 	if (data.token == 'err') {
-		alert('Špatné heslo');
+		let txt = document.getElementById('pass');
+		txt.innerHTML = 'Špatné uživatelské jméno nebo heslo';
+		txt.style.color = 'red';
+
 		return;
 	}
 	if (data.stav == 'ok') {

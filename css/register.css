@@ -24,7 +24,7 @@ body.dark-theme {
 	color: white;
 	--bg: black;
 	--txt: white;
-	--border: rgb(0, 255, 255);
+	--border: #240090;
 	--shadow: rgba(255, 255, 255, 0.4);
 }
 body.load {
@@ -39,18 +39,18 @@ main {
 	justify-content: center;
 	align-items: center;
 }
-.register {
-	border: solid 10px var(--border);
-	border-radius: 20px;
-	box-shadow: 0 0 70px var(--border);
-	padding: 20px;
-}
+
 h1,
 h2,
 #passTxt,
 #form,
 .btn {
 	margin-left: 10px;
+}
+.register {
+	border: solid 5px var(--border);
+	border-radius: 20px;
+	padding: 30px;
 }
 .input {
 	width: 300px;
