@@ -50,6 +50,20 @@ function zpracovaniPozadavku(req, res) {
 			});
 			let s = fs.readFileSync('./html/start.html').toString();
 			res.end(s);
+		}
+		if (req.url == '/admin') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/admin.html').toString();
+			res.end(s);
+		}
+		if (req.url == '/start-admin') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/start_admin.html').toString();
+			res.end(s);
 		} else if (req.url == '/background.jpg') {
 			res.writeHead(200, {
 				'Content-type': 'icon/jpg',

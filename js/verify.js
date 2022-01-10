@@ -22,6 +22,7 @@ exports.zpracovaniPozadavku = async function (req, res) {
 	const HTML_FILES = fs.readdirSync('./verify');
 	const USER_FILE = JSON.parse(fs.readFileSync('./json/users.json'));
 	const TEMP_FILE = JSON.parse(fs.readFileSync('./json/tempUsers.json'));
+	const ADMIN_FILE = JSON.parse(fs.readFileSync('./json/admins.json'));
 
 	if (req.url.startsWith('/verify')) {
 		HTML_FILES.forEach((file) => {
@@ -45,6 +46,13 @@ exports.zpracovaniPozadavku = async function (req, res) {
 						u4.name = user.name;
 						u4.password = user.password;
 						u4.email = user.email;
+						for (let admin of ADMIN_FILE) {
+							if (admin.email == user.email) {
+								u4.admin = true;
+							} else {
+								u4.admin = false;
+							}
+						}
 					}
 				}
 				u1 = [u4, ...u5];

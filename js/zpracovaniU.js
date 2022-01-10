@@ -24,8 +24,12 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 		let pass = hash(password);
 
 		let token;
+		let admin = false;
 		for (let f of file) {
 			if (name == f.name && pass == f.password) {
+				if (f.admin == true) {
+					admin = true;
+				}
 				token = GetToken();
 			}
 		}
@@ -36,6 +40,7 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 		o.stav = 'ok';
 		o.token = token || 'err';
 		o.page = 'start';
+		o.admin = admin;
 		res.end(JSON.stringify(o));
 		return;
 	}
