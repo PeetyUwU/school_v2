@@ -7,6 +7,7 @@ const requestIp = require('request-ip');
 const zpracovaniUzivatele = require('./js/zpracovaniU.js').zpracovaniPozadavku;
 const register = require('./js/registerNode.js').zpracovaniPozadavku;
 const verify = require('./js/verify.js').zpracovaniPozadavku;
+const adminNode = require('./js/adminNode.js').zpracovaniPozadavku;
 
 console.log('Server is ready');
 
@@ -107,6 +108,9 @@ function zpracovaniPozadavku(req, res) {
 				}
 				if (req.url.startsWith('/register')) {
 					register(req, par, res);
+				}
+				if (req.url.startsWith('/admin')) {
+					adminNode(req, par, res);
 				} else {
 					res.writeHead(404);
 				}
