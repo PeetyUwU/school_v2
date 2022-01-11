@@ -62,3 +62,17 @@ function logOut() {
 	sessionStorage.clear();
 	location.replace('/');
 }
+async function backLogin() {
+	let url = location.replace('/');
+	let body = {};
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		alert(data.chyba);
+	}
+	return;
+}

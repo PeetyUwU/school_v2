@@ -44,22 +44,19 @@ function zpracovaniPozadavku(req, res) {
 			});
 			s = fs.readFileSync(`./js` + req.url).toString();
 			res.end(s);
-		}
-		if (req.url == '/start') {
+		} else if (req.url == '/start') {
 			res.writeHead(200, {
 				'Content-type': 'text/html',
 			});
 			let s = fs.readFileSync('./html/start.html').toString();
 			res.end(s);
-		}
-		if (req.url == '/admin') {
+		} else if (req.url == '/admin') {
 			res.writeHead(200, {
 				'Content-type': 'text/html',
 			});
 			let s = fs.readFileSync('./html/admin.html').toString();
 			res.end(s);
-		}
-		if (req.url == '/start-admin') {
+		} else if (req.url == '/start-admin') {
 			res.writeHead(200, {
 				'Content-type': 'text/html',
 			});
@@ -90,7 +87,11 @@ function zpracovaniPozadavku(req, res) {
 			s = fs.readFileSync('background.png');
 			res.end(s);
 		} else {
-			res.writeHead(404);
+			res.writeHead(404, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/404.html').toString();
+			res.end(s);
 		}
 	}
 	if (req.method === 'POST') {
@@ -105,11 +106,9 @@ function zpracovaniPozadavku(req, res) {
 				console.log(data);
 				if (req.url.startsWith('/login')) {
 					zpracovaniUzivatele(req, par, res);
-				}
-				if (req.url.startsWith('/register')) {
+				} else if (req.url.startsWith('/register')) {
 					register(req, par, res);
-				}
-				if (req.url.startsWith('/admin')) {
+				} else if (req.url.startsWith('/admin')) {
 					adminNode(req, par, res);
 				} else {
 					res.writeHead(404);
@@ -117,7 +116,11 @@ function zpracovaniPozadavku(req, res) {
 			}
 		});
 	} else {
-		res.writeHead(404);
+		res.writeHead(404, {
+			'Content-type': 'text/html',
+		});
+		let s = fs.readFileSync('./html/404.html').toString();
+		res.end(s);
 	}
 }
 let srv = http.createServer(zpracovaniPozadavku);
