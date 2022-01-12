@@ -15,34 +15,84 @@
             background-image: url("./404.jpg");
             background-size: cover;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            overflow-y: hidden;
+            --color: rgb(255, 148, 195);
+            --flash: rgb(255, 112, 174);
+        }
+        body.dark-theme {
+            background-image: none;
+            background-color: #07252d;
+            --color: #0e3742;
+            --flash: #03bcf4;
         }
         header {
             min-height: 10%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         main {
             min-height: 80%;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
         }
+        footer {
+            min-height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
         h1 {
-            -webkit-text-stroke-width: 3px;
-            -webkit-text-stroke-color: white;
-            -webkit-text-fill-color: rgb(255, 89, 161);
+            position: relative;
+            color: var(--color);
+            letter-spacing: 15px;
+            width: 100%;
+            text-align: center;
+            line-height: 0.70em;
+            /*-webkit-box-reflect: below 1px linear-gradient(transparent, #0008);*/
             font-size: 120px;
+            animation: animate 5s linear infinite;
+            outline: none;
+        }
+        body a {
+            color: #07252d;
+        }
+        body.dark-theme a {
+            color: white;
+        }
+        @keyframes animate {
+            0%, 18%, 20%, 50.1%,60%,65.1%,80%,90.1%,92% {
+                color: var(--color);
+                text-shadow: none;
+            }
+            18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100% {
+                color: #fff;
+                text-shadow: 0 0 10px var(--flash), 0 0 20px var(--flash), 0 0 40px var(--flash), 0 0 80px var(--flash), 0 0 160px var(--flash);
+            }
         }
     </style>
+    <script>
+        function onLoad() {
+            if (JSON.parse(localStorage.getItem('theme'))) {
+		document.body.classList.toggle('dark-theme');
+		document.body.classList.toggle('load');
+	}
+        }
+    </script>
     <title>404</title>
 </head>
-<body>
+<body onload="onLoad()">
     <header>
             <h1>Stránka nebyla nalezena</h1>
     </header>
+    <footer>
+        <a href="/">Vrátit se zpět</a>
+    </footer>
     
 </body>
 </html>
