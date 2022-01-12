@@ -11,27 +11,37 @@
         html, body {
             height: 100%;
         }
+        body {
+            background-image: url("./404.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
         header {
             min-height: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .head {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+        main {
+            min-height: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        h1 {
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: white;
+            -webkit-text-fill-color: rgb(255, 89, 161);
+            font-size: 120px;
         }
     </style>
     <title>404</title>
 </head>
 <body>
     <header>
-        <div class="head">
             <h1>Stránka nebyla nalezena</h1>
-            <h1>(404)</h1>
-        </div>
     </header>
     
 </body>

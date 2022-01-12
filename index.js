@@ -21,8 +21,7 @@ function zpracovaniPozadavku(req, res) {
 			});
 			let s = fs.readFileSync('index.html').toString();
 			res.end(s);
-		}
-		if (req.url == '/register') {
+		} else if (req.url == '/register') {
 			res.writeHead(200, {
 				'Content-type': 'text/html',
 			});
@@ -30,7 +29,7 @@ function zpracovaniPozadavku(req, res) {
 			res.end(s);
 		}
 		//*verify
-		if (req.url.startsWith('/verify')) {
+		else if (req.url.startsWith('/verify')) {
 			verify(req, res);
 		} else if (req.url.endsWith('css')) {
 			res.writeHead(200, {
@@ -86,6 +85,12 @@ function zpracovaniPozadavku(req, res) {
 			});
 			s = fs.readFileSync('background.png');
 			res.end(s);
+		} else if (req.url == '/404.jpg') {
+			res.writeHead(200, {
+				'Content-type': 'icon/jpg',
+			});
+			s = fs.readFileSync('./404-2.jpg');
+			res.end(s);
 		} else {
 			res.writeHead(404, {
 				'Content-type': 'text/html',
@@ -111,16 +116,16 @@ function zpracovaniPozadavku(req, res) {
 				} else if (req.url.startsWith('/admin')) {
 					adminNode(req, par, res);
 				} else {
-					res.writeHead(404);
+					res.writeHead(404, {
+						'Content-type': 'text/html',
+					});
+					let s = fs.readFileSync('./html/404.html').toString();
+					res.end(s);
 				}
 			}
 		});
 	} else {
-		res.writeHead(404, {
-			'Content-type': 'text/html',
-		});
-		let s = fs.readFileSync('./html/404.html').toString();
-		res.end(s);
+		res.writeHead(404);
 	}
 }
 let srv = http.createServer(zpracovaniPozadavku);
