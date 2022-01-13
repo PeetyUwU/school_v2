@@ -12,12 +12,12 @@
             height: 100%;
         }
         body {
-            background-image: url("./404-2.jpg");
+            background-image: none;
             background-size: cover;
             background-repeat: no-repeat;
             overflow-y: hidden;
-            --color: rgb(255, 148, 195);
-            --flash: rgb(255, 112, 174);
+            --color: #420e0e;
+            --flash: #f40303;
         }
         body.dark-theme {
             background-image: none;
@@ -60,13 +60,10 @@
             outline: none;
         }
         body .err {
-            display: none;
-        }
-        body.dark-theme .err {
             display: block;
             animation: animate 10s linear infinite;
             -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
-            font-size: 300px;
+            font-size: 200px;
         }
         body a {
             color: #333;
@@ -74,7 +71,7 @@
             text-decoration: none;
         }
         body.dark-theme a {
-            color: red;
+            color: #fff;
             font-size: 50px;
         }
         

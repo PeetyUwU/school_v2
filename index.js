@@ -49,6 +49,12 @@ function zpracovaniPozadavku(req, res) {
 			});
 			let s = fs.readFileSync('./html/start.html').toString();
 			res.end(s);
+		} else if (req.url == '/vyber') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/vyber.html').toString();
+			res.end(s);
 		} else if (req.url == '/admin') {
 			res.writeHead(200, {
 				'Content-type': 'text/html',

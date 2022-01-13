@@ -2,9 +2,6 @@ function onLoad() {
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
 	}
-	document.getElementById(
-		'welcome'
-	).innerHTML = `Vítejte ${sessionStorage.getItem('name')}`;
 	let btn = document.getElementById('theme');
 	btn.addEventListener('click', function () {
 		let darkThemeEnabled = document
@@ -19,10 +16,9 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
-function vyber() {
-	location.href = 'vyber';
-}
-
 async function backLogin() {
 	location.href = '/';
+}
+function english() {
+	location.href = 'english';
 }

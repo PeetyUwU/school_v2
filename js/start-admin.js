@@ -22,21 +22,13 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
+function vyber() {
+	location.href = 'vyber';
+}
 
 async function backLogin() {
-	let url = location.replace('/');
-	let body = {};
-	let response = await fetch(url, {
-		method: 'POST',
-		body: JSON.stringify(body),
-	});
-	let data = await response.json();
-
-	if (data.stav != 'ok') {
-		alert(data.chyba);
-	}
-	return;
+	location.href = '/';
 }
 async function admin() {
-	location.replace('admin');
+	location.href = 'admin';
 }
