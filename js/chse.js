@@ -16,13 +16,22 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
-async function backLogin() {
+function backLogin() {
 	location.href = '/';
-}
-function english() {
-	location.href = 'english';
 }
 function logOut() {
 	sessionStorage.clear();
-	location.href = '/';
+	location.replace('/');
+}
+function goingto() {
+	location.href = 'english/goingto';
+}
+function select1() {
+	location.href = 'english/select1';
+}
+function eng3B8() {
+	location.href = 'english/eng3B8';
+}
+function back() {
+	location.href = 'vyber';
 }

@@ -1,2 +1,8 @@
 # school_v2
-email verification
+
+New features:
+
+-   email verification
+-   better security
+
+---

@@ -26,3 +26,7 @@ function vyber() {
 async function backLogin() {
 	location.href = '/';
 }
+function logOut() {
+	sessionStorage.clear();
+	location.href = '/';
+}

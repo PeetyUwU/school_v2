@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="eng3B8.css">
-    <title>eng3B8</title>
+    <script src="eng3B8.js"></script>
+    <title>Eng3B8</title>
 </head>
 
-<body id="dark-theme">
+<body onload="onLoad()" id="dark-theme">
 
     <header>
         <div class="menu">
-            <button onclick="main()" class="btn">Hlavní stránka</button>
+            <button onclick="" class="btn">Hlavní stránka</button>
         </div>
         <div class="menu">
             <button onclick="english()" class="btn">Back</button>
@@ -28,36 +29,41 @@
             </ul>
         </div>
     </header>
-    <div class="container">
+    <main>
         <div class="main">
             <h1>Complete the sentences with the correct form of the verb in brackets.</h1>
             <h3><em>lay's / will lay</em></h3>
+            <br>
             <ol>
-                <li><b>They won't travel tomorrow if it (snow) <input type="text" name="x" id="x1"
-                            placeholder="type here" autocomplete="off">.</b></li>
-                <br>
+                <li>
+                    <b>They won't travel tomorrow if it (snow) <input type="text" name="x" id="x1"
+                            placeholder="type here" autocomplete="off"class="input">.</b></li>
+                <p id="0"><br></p>
                 <li><b>If David goes to the park, I (meet) <input type="text" placeholder="type here" id="y1"
-                            autocomplete="off"> him there.</b></li>
-                <br>
+                            autocomplete="off" class="input"> him there.</b></li>
+                <p id="1"><br></p>
                 <li><b>You won't get to the party if you (miss) <input type="text" id="z1" placeholder="type here"
-                            autocomplete="off"> the bus.</b></li>
-                <br>
+                            autocomplete="off" class="input"> the bus.</b></li>
+                <p id="2"><br></p>
                 <li><b>If you press save now, you (not lose) <input type="text" id="a1"
-                            placeholder="type here" autocomplete="off"> the information.</b></li>
-                <br>
-                <li><b>If I (be) <input type="text" id="u1" placeholder="type here" autocomplete="off"> late for the
+                            placeholder="type here" autocomplete="off" class="input"> the information.</b></li>
+                <p id="3"><br></p>
+                <li><b>If I (be) <input type="text" id="u1" placeholder="type here" autocomplete="off" class="input"> late for the
                         lesson, my teacher will be annoyed.</b></li>
-                <br>
+                <p id="4"><br></p>
                 <li><b>If my parents buy me a new guitar, I (play) <input type="text" id="p1" placeholder="type here"
-                            autocomplete="off"> it every day.</b></li>
+                            autocomplete="off" class="input"> it every day.</b>
+                <p id="5"><br></p>
+                    </li>
             </ol>
-            <button class="theme" onclick="eng3B8c()" id="eng3B8c">Control</button>
+            <br>
+            <button class="btn" onclick="eng3B8c()" id="eng3B8c">Control</button>
         </div>
-        <div class="footer">
-            <button id="theme">Theme</button>
-        </div>
-    </div>
-
+        
+    </main>
+    <footer class="footer">
+        <button id="theme" class="btn">Theme</button>
+    </footer>
 </body>
 
 </html>

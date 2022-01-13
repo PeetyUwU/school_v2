@@ -29,6 +29,7 @@ body.dark-theme {
 	--cl: #333;
 	--br: #240090;
 	--bgl: #4000ff;
+	--border: #240090;
 	--snow: #fff;
 	--shadow: rgba(255, 255, 255, 0.4);
 }

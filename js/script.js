@@ -12,6 +12,12 @@ function onLoad() {
 		document.body.classList.toggle('dark-theme');
 		document.body.classList.toggle('load');
 	}
+	let inp = document.getElementById('password');
+	inp.addEventListener('keyup', (key) => {
+		if (key.key == 'Enter') {
+			logIn();
+		}
+	});
 }
 
 async function logIn() {

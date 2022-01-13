@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="chse.css">
-    <title>Document</title>
+    <script src="chse.js"></script>
+    <title>English</title>
 </head>
 
-<body id="dark-theme">
+<body onload="onLoad()"id="dark-theme">
     <header>
         <div class="menu">
             <button onclick="main()" class="btn">Hlavní stránka</button>
@@ -20,22 +21,19 @@
                 <li><a>Test</a></li>
                 <li><a>Známky</a></li>
                 <li><a>SS</a></li>
-                <li><a onclick="logout()">Odhlásit</a></li>
+                <li><a onclick="logOut()">Odhlásit</a></li>
             </ul>
         </div>
     </header>
-    <div class="container">
-        <div class="main">
-            <a onclick="goingto()" class="a">going to</a>
-            <a onclick="select1()" class="a">A/AN/THE</a>
-            <a onclick="eng3B8()" class="a">eng3B8</a>
-            <a onclick="predmety1()" id="main">Main menu</a>
-        </div>
-        <div class="footer">
-            <button id="theme">Theme</button>
-        </div>
-
-    </div>
+    <main>
+            <button onclick="goingto()" class="btn">going to</button>
+            <button onclick="select1()" class="btn">A/AN/THE</button>
+            <button onclick="eng3B8()" class="btn">eng3B8</button>
+            <button onclick="back()" class="btn">Main menu</button>
+    </main>
+    <footer>
+        <button id="theme" class="btn">Theme</button>
+    </footer>
 </body>
 
 </html>

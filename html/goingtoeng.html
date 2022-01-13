@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="goingtoeng.css">
+    <title>Document</title>
+</head>
+
+<body id="dark-theme">
+    <header>
+        <div class="menu">
+            <button onclick="main()" class="btn">Hlavní stránka</button>
+        </div>
+        <div class="menu">
+            <button class="btn">Menu</button>
+            <ul>
+                <li><a>Test</a></li>
+                <li><a>Známky</a></li>
+                <li><a>SS</a></li>
+                <li><a onclick="logout()">Odhlásit</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <h1>English</h1>
+            <h6>This is beta testing</h6>
+            <ol>
+                <li>
+                    I <select id="going1">
+                        <option>am</option>
+                        <option>is</option>
+                        <option>are</option>
+                    </select> <input type="text" placeholder="type here" id="goingto1" autocomplete="off"> play
+                    football.
+                </li>
+                <li>
+                    You <select id="going2">
+                        <option>am</option>
+                        <option>is</option>
+                        <option>are</option>
+                    </select> <input type="text" placeholder="type here" id="goingto2" autocomplete="off"> have to do
+                    your homework.
+                </li>
+                <li>
+                    Sara <select id="going3">
+                        <option>am</option>
+                        <option>is</option>
+                        <option>are</option>
+                    </select> <input type="text" placeholder="type here" id="goingto3" autocomplete="off"> play
+                    videogames at home.
+                </li>
+                <li>
+                    <select id="going4">
+                        <option>Am</option>
+                        <option>Is</option>
+                        <option>Are</option>
+                    </select> you <input type="text" placeholder="type here" id="goingto4" autocomplete="off"> go to
+                    your grandpa?
+                </li>
+                <li>
+                    <select id="going5">
+                        <option>Am</option>
+                        <option>Is</option>
+                        <option>Are</option>
+                    </select> he <input type="text" placeholder="type here" id="goingto5" autocomplete="off"> buy
+                    something?
+                </li>
+                <li>Where <select id="going6">
+                        <option>am</option>
+                        <option>is</option>
+                        <option>are</option>
+                    </select> you <input type="text" placeholder="type here" id="goingto6" autocomplete="off"> be at
+                    5pm?</li>
+                <li> She <select id="going7">
+                        <option>am not</option>
+                        <option>isn't</option>
+                        <option>aren't</option>
+                    </select> <input type="text" placeholder="type here" id="goingto7" autocomplete="off"> help you.
+                </li>
+                <li> I <select id="going8">
+                        <option>am not</option>
+                        <option>isn't</option>
+                        <option>aren't</option>
+                    </select> <input type="text" placeholder="type here" id="goingto8" autocomplete="off"> work tomorrow
+                </li>
+                <li> They <select id="going9">
+                        <option>am not</option>
+                        <option>isn't</option>
+                        <option>aren't</option>
+                    </select> <input type="text" placeholder="type here" id="goingto9" autocomplete="off"> play chess.
+                </li>
+                <li> We <select id="going10">
+                        <option>am</option>
+                        <option>is</option>
+                        <option>are</option>
+                    </select> <input type="text" placeholder="type here" id="goingto10" autocomplete="off"> do fun stuff
+                    today.</li>
+            </ol>
+            <br>
+            <button onclick="gctrl()" class="theme" id="gctrl">Control</button>
+            <button onclick="english()" id="main" class="theme">Main menu</button>
+
+
+        </div>
+        <div class="footer">
+            <button id="theme">Theme</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

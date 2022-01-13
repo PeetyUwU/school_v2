@@ -8,6 +8,7 @@ const zpracovaniUzivatele = require('./js/zpracovaniU.js').zpracovaniPozadavku;
 const register = require('./js/registerNode.js').zpracovaniPozadavku;
 const verify = require('./js/verify.js').zpracovaniPozadavku;
 const adminNode = require('./js/adminNode.js').zpracovaniPozadavku;
+const control = require('./js/control.js').zpracovaniPozadavku;
 
 console.log('Server is ready');
 
@@ -66,6 +67,24 @@ function zpracovaniPozadavku(req, res) {
 				'Content-type': 'text/html',
 			});
 			let s = fs.readFileSync('./html/start_admin.html').toString();
+			res.end(s);
+		} else if (req.url == '/english') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/englishchoose.html').toString();
+			res.end(s);
+		} else if (req.url == '/english/eng3B8') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/eng3B8.html').toString();
+			res.end(s);
+		} else if (req.url == '/english/goingto') {
+			res.writeHead(200, {
+				'Content-type': 'text/html',
+			});
+			let s = fs.readFileSync('./html/goingtoeng.html').toString();
 			res.end(s);
 		} else if (req.url == '/background.jpg') {
 			res.writeHead(200, {
@@ -127,6 +146,8 @@ function zpracovaniPozadavku(req, res) {
 					register(req, par, res);
 				} else if (req.url.startsWith('/admin')) {
 					adminNode(req, par, res);
+				} else if (req.url.endsWith('/control')) {
+					control(req, par, res);
 				} else {
 					res.writeHead(404, {
 						'Content-type': 'text/html',

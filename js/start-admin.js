@@ -3,7 +3,7 @@ function onLoad() {
 		backLogin();
 	}
 	if (sessionStorage.getItem('admin') != 'true') {
-		backLogin();
+		notAdmin();
 	}
 	document.getElementById(
 		'welcome'
@@ -29,6 +29,13 @@ function vyber() {
 async function backLogin() {
 	location.href = '/';
 }
+function notAdmin() {
+	location.href = '/start';
+}
 async function admin() {
 	location.href = 'admin';
+}
+function logOut() {
+	sessionStorage.clear();
+	location.href = '/';
 }
