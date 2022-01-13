@@ -85,11 +85,17 @@ function zpracovaniPozadavku(req, res) {
 			});
 			s = fs.readFileSync('background.png');
 			res.end(s);
-		} else if (req.url == '/404.jpg') {
+		} else if (req.url == '/404-2.jpg') {
 			res.writeHead(200, {
 				'Content-type': 'icon/jpg',
 			});
 			s = fs.readFileSync('./404-2.jpg');
+			res.end(s);
+		} else if (req.url == '/404.jpg') {
+			res.writeHead(200, {
+				'Content-type': 'icon/jpg',
+			});
+			s = fs.readFileSync('./404.jpg');
 			res.end(s);
 		} else {
 			res.writeHead(404, {

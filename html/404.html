@@ -12,7 +12,7 @@
             height: 100%;
         }
         body {
-            background-image: url("./404.jpg");
+            background-image: url("./404-2.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             overflow-y: hidden;
@@ -34,8 +34,8 @@
         main {
             min-height: 80%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: start;
+            align-items: flex-start;
         }
         footer {
             min-height: 10%;
@@ -59,11 +59,23 @@
             animation: animate 5s linear infinite;
             outline: none;
         }
+        body .err {
+            display: none;
+        }
+        body.dark-theme .err {
+            display: block;
+            animation: animate 10s linear infinite;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+            font-size: 300px;
+        }
         body a {
             color: #07252d;
+            font-size: 50px;
+            text-decoration: none;
         }
         body.dark-theme a {
-            color: white;
+            color: red;
+            font-size: 50px;
         }
         @keyframes animate {
             0%, 18%, 20%, 50.1%,60%,65.1%,80%,90.1%,92% {
@@ -90,6 +102,9 @@
     <header>
             <h1>Stránka nebyla nalezena</h1>
     </header>
+    <main>
+        <h1 class="err">404</h1>
+    </main>
     <footer>
         <a href="/">Vrátit se zpět</a>
     </footer>
