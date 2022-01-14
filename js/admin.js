@@ -1,4 +1,8 @@
+let znamky;
+let users;
+
 function onLoad() {
+	loggedIn();
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
 	}
@@ -18,6 +22,42 @@ function onLoad() {
 		document.body.classList.toggle('dark-theme');
 		document.body.classList.toggle('load');
 	}
+
+	loadGrades();
+	getUsers();
+	let inp = document.getElementById('searchBar');
+	inp.addEventListener('keyup', (e) => {
+		let search = e.target.value;
+		console.log(search);
+		let filtred = znamky.filter((w) => w.name.includes(search));
+		if (
+			filtred.length == 0 ||
+			e.key == 'Enter' ||
+			e.key == 'Shift' ||
+			e.key == 'Control'
+		) {
+			mapZnamka(filtred);
+			return;
+		} else {
+			mapZnamka(filtred);
+		}
+	});
+}
+async function loggedIn() {
+	let url = '/login/token';
+	let body = {};
+	body.token = sessionStorage.getItem('token');
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	sessionStorage.setItem('admin', data.admin);
+
+	if (data.stav != 'ok') {
+		location.href = '/';
+	}
 }
 async function admin() {
 	if (checkValid == false) {
@@ -25,7 +65,7 @@ async function admin() {
 	}
 	let emailAdd = document.getElementById('emailAdd').value;
 
-	let url = location.href + 'admin/addAdmin';
+	let url = '/admin/addAdmin';
 	let body = {};
 	body.email = emailAdd;
 	let response = await fetch(url, {
@@ -67,4 +107,85 @@ function back() {
 }
 async function backLogin() {
 	location.replace('/');
+}
+
+async function loadGrades() {
+	let url = '/admin/loadGrades';
+	let body = {};
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		alert(data.chyba);
+		return;
+	}
+
+	znamky = data.grades;
+}
+
+function mapZnamka(filter) {
+	let mapped = '';
+	for (let f of filter) {
+		mapped =
+			mapped +
+			`<li class="list">
+			<h3>${f.name || 'Error'}</h3>
+			<p>Cvičení: ${f.work || 'Error'}</p>
+			<p>Počet správných odpovědí: ${f.point || 'Error'}</p>
+			<p>Datum vyplnění: ${f.date || 'Error'}</p>
+			</li>`;
+	}
+	document.getElementById('form2').innerHTML = mapped;
+}
+function showGrades() {
+	let mapped = '';
+	znamky.map((z) => {
+		let dt = new Date(z.date);
+		mapped =
+			mapped +
+			`<li class="list">
+			<h3>${z.name || 'Error'}</h3>
+			<p>Cvičení: ${z.work || 'Error'}</p>
+			<p>Počet správných odpovědí: ${z.point || 'Error'}</p>
+			<p>Datum vyplnění: ${dt.toLocaleString() || 'Error'}</p>
+			</li>`;
+	});
+	document.getElementById('form2').innerHTML = mapped;
+}
+function selectFilter(val) {
+	console.log(val.value);
+}
+async function getUsers() {
+	let url = '/admin/getUsers';
+	let body = {};
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		alert(data.chyba);
+		return;
+	}
+
+	users = data.users;
+}
+function showUsers() {
+	let mapped = '';
+	users.map((u) => {
+		let dt = new Date(u.date);
+		mapped =
+			mapped +
+			`<li class="list">
+			<h3>${u.name || 'Error'}</h3>
+			<p>Email: ${u.email || 'Error'}</p>
+			<p>Administrátor: ${u.admin || 'Error'}</p>
+			<p>Datum registrace: ${dt.toLocaleString() || 'Error'}</p>
+			</li>`;
+	});
+	document.getElementById('form3').innerHTML = mapped;
 }

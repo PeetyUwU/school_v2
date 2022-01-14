@@ -31,6 +31,50 @@
             <br>
             <button onclick="admin()" class="btn">Přidat</button>
         </div>
+        <div class="znamky">
+            <h1>Známky</h1>
+            <select id="classSelect" onclick="selectFilter(this)">
+                <option>1.A</option>
+                <option>1.B</option>
+                <option>1.C</option>
+                <option>2.A</option>
+                <option>2.B</option>
+                <option>2.C</option>
+                <option>3.A</option>
+                <option>3.B</option>
+                <option>3.C</option>
+                <option>4.A</option>
+                <option>4.B</option>
+                <option>4.C</option>
+                <option>5.A</option>
+                <option>5.B</option>
+                <option>5.C</option>
+                <option>6.A</option>
+                <option>6.B</option>
+                <option>6.C</option>
+                <option>7.A</option>
+                <option>7.B</option>
+                <option>7.C</option>
+                <option>8.A</option>
+                <option>8.B</option>
+                <option>8.C</option>
+                <option>9.A</option>
+                <option>9.B</option>
+                <option>9.C</option>
+            </select>
+            <br>
+            <input type="text" id="searchBar" class="input" placeholder="Peety">
+            <br>
+            <button class="btn" onclick="showGrades()">Načíst</button>
+            <ul id="form2" class="ul"></ul>
+        </div>
+        <div class="listUsers">
+            <h2>Uživatelé</h2>
+            <input type="text" id="searchBar2" class="input" placeholder="Peety">
+            <br>
+            <button class="btn" onclick="showUsers()">Načíst</button>
+            <ul id="form3" class="ul"></ul>
+        </div>
     </main>
     <footer>
         <button id="theme" class="btn">Theme</button>

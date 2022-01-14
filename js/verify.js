@@ -11,8 +11,14 @@ function hash(heslo) {
 	return crypto.createHash('sha256').update(hashing).digest('hex');
 }
 
-function tokne() {
+function token() {
 	return Math.floor(Math.random() * 10000)
+		.toString(36)
+		.substring(0);
+}
+
+function getToken() {
+	return Math.floor(Math.random() * 10000000000000)
 		.toString(36)
 		.substring(0);
 }
@@ -46,6 +52,16 @@ exports.zpracovaniPozadavku = async function (req, res) {
 						u4.name = user.name;
 						u4.password = user.password;
 						u4.email = user.email;
+						u4.token =
+							getToken() +
+							getToken() +
+							'-' +
+							getToken() +
+							getToken() +
+							'.' +
+							getToken() +
+							getToken();
+						u4.date = Date.now();
 						for (let admin of ADMIN_FILE) {
 							if (admin.email == user.email) {
 								u4.admin = true;

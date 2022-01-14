@@ -1,9 +1,7 @@
 function onLoad() {
+	loggedIn();
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
-	}
-	if (sessionStorage.getItem('admin') != 'true') {
-		notAdmin();
 	}
 	document.getElementById(
 		'welcome'
@@ -22,20 +20,35 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
-function vyber() {
-	location.href = 'vyber';
-}
 
 async function backLogin() {
 	location.href = '/';
 }
-function notAdmin() {
-	location.href = '/start';
+function logOut() {
+	sessionStorage.clear();
+	location.href = '/';
+}
+async function loggedIn() {
+	let url = '/login/token';
+	let body = {};
+	body.token = sessionStorage.getItem('token');
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		location.href = '/';
+		sessionStorage.setItem('admin', data.admin);
+	}
 }
 async function admin() {
 	location.href = 'admin';
 }
-function logOut() {
-	sessionStorage.clear();
-	location.href = '/';
+function notAdmin() {
+	location.href = '/start';
+}
+function vyber() {
+	location.href = 'vyber';
 }

@@ -153,7 +153,7 @@ footer {
 }
 .btn:active {
 	transform: scale(1.1);
-	box-shadow: 6px 4px 6px var(--shadow);
+	box-shadow: 6px 5px 6px var(--shadow);
 }
 .input {
 	width: 250px;

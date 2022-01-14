@@ -1,4 +1,5 @@
 function onLoad() {
+	loggedIn();
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
 	}
@@ -16,15 +17,33 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
-function backLogin() {
+
+async function backLogin() {
 	location.href = '/';
 }
 function logOut() {
 	sessionStorage.clear();
-	location.replace('/');
+	location.href = '/';
+}
+async function loggedIn() {
+	let url = '/login/token';
+	let body = {};
+	body.token = sessionStorage.getItem('token');
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		location.href = '/';
+	}
 }
 function main() {
-	location.href = 'start-admin';
+	location.href = '/start-admin';
+}
+function english() {
+	location.href = '/english';
 }
 async function eng3B8c() {
 	let one = document.getElementById('x1');
@@ -33,6 +52,7 @@ async function eng3B8c() {
 	let four = document.getElementById('a1');
 	let five = document.getElementById('u1');
 	let six = document.getElementById('p1');
+	let name = sessionStorage.getItem('name');
 
 	let url = location.href + '/control';
 	let body = {};
@@ -42,6 +62,8 @@ async function eng3B8c() {
 	body.a = four.value;
 	body.u = five.value;
 	body.p = six.value;
+	body.name = name;
+	body.work = 'eng3B8';
 	let response = await fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(body),

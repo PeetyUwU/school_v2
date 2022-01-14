@@ -28,5 +28,29 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 				fs.writeFileSync(ADMIN_FILE, JSON.stringify(u2, null, 2));
 			}
 		}
+	} else if (req.url.startsWith('/admin/loadGrades')) {
+		const GRADES = './json/grades.json';
+		const grades = JSON.parse(fs.readFileSync(GRADES));
+
+		res.writeHead(200, {
+			'Content-type': 'application/json',
+		});
+		let o = {};
+		o.stav = 'ok';
+		o.grades = grades;
+		res.end(JSON.stringify(o));
+		return;
+	} else if (req.url.startsWith('/admin/getUsers')) {
+		const USERS = './json/users.json';
+		const users = JSON.parse(fs.readFileSync(USERS));
+
+		res.writeHead(200, {
+			'Content-type': 'application/json',
+		});
+		let o = {};
+		o.stav = 'ok';
+		o.users = users;
+		res.end(JSON.stringify(o));
+		return;
 	}
 };

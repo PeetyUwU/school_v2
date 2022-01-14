@@ -97,12 +97,39 @@ header {
 main {
 	min-height: 80%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: baseline;
 }
 .addAdmin {
 	border: solid 6px var(--border);
+	box-shadow: 0 0 50px var(--border);
 	padding: 30px;
+	border-radius: 20px;
+	margin: 10px;
+}
+.znamky {
+	border: solid 6px var(--border);
+	box-shadow: 0 0 50px var(--border);
+	padding: 30px;
+	border-radius: 20px;
+	margin: 10px;
+}
+.listUsers {
+	border: solid 6px var(--border);
+	box-shadow: 0 0 50px var(--border);
+	padding: 30px;
+	border-radius: 20px;
+	margin: 10px;
+}
+.ul {
+	list-style: none;
+}
+.list {
+	background-color: var(--txt);
+	color: var(--bg);
+	padding: 20px;
+	margin: 10px;
 	border-radius: 20px;
 }
 .input {

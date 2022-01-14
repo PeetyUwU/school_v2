@@ -51,7 +51,17 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 				o.chyba = 'Email již je používán';
 				res.end(JSON.stringify(o));
 				return;
-			} else continue;
+			}
+			if ((u.name = name)) {
+				res.writeHead(200, {
+					'Content-type': 'application/json',
+				});
+				let o = {};
+				o.stav = 'err';
+				o.chyba = 'Jméno je již používáno';
+				res.end(JSON.stringify(o));
+				return;
+			}
 		}
 
 		//*create verify page

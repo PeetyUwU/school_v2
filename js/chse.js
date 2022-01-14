@@ -1,4 +1,5 @@
 function onLoad() {
+	loggedIn();
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
 	}
@@ -16,12 +17,27 @@ function onLoad() {
 		document.body.classList.toggle('load');
 	}
 }
-function backLogin() {
+
+async function backLogin() {
 	location.href = '/';
 }
 function logOut() {
 	sessionStorage.clear();
-	location.replace('/');
+	location.href = '/';
+}
+async function loggedIn() {
+	let url = '/login/token';
+	let body = {};
+	body.token = sessionStorage.getItem('token');
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		location.href = '/';
+	}
 }
 function goingto() {
 	location.href = 'english/goingto';

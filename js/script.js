@@ -47,6 +47,7 @@ async function logIn() {
 	if (data.stav == 'ok') {
 		sessionStorage.setItem('status', 'loggedIn');
 		sessionStorage.setItem('name', name);
+		sessionStorage.setItem('token', data.token);
 		sessionStorage.setItem('admin', data.admin);
 		if (data.admin == true) {
 			location.href = 'start-admin';
