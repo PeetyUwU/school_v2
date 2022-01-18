@@ -53,7 +53,7 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 				res.end(JSON.stringify(o));
 				return;
 			}
-			if ((u.name = name)) {
+			if (u.name == name) {
 				res.writeHead(200, {
 					'Content-type': 'application/json',
 				});
