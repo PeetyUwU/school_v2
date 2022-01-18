@@ -18,6 +18,26 @@ function onLoad() {
 			logIn();
 		}
 	});
+
+	console.log(`Initially ${window.navigator.onLine ? 'on' : 'off'}line`);
+	window.addEventListener('online', () => {
+		console.log('You are online');
+		document.getElementById('online-status').classList.add('online');
+		document.getElementById('online-status').innerHTML = 'You are online';
+		setTimeout(() => {
+			document.getElementById('online-status').classList.remove('online');
+		}, 5000);
+	});
+	window.addEventListener('offline', () => {
+		console.log('You are offline');
+		document.getElementById('online-status').classList.add('offline');
+		document.getElementById('online-status').innerHTML = 'You are offline';
+		setTimeout(() => {
+			document
+				.getElementById('online-status')
+				.classList.remove('offline');
+		}, 5000);
+	});
 }
 
 async function logIn() {

@@ -3,6 +3,9 @@ function onLoad() {
 	if (sessionStorage.getItem('status') != 'loggedIn') {
 		backLogin();
 	}
+	if (sessionStorage.getItem('admin') != 'true') {
+		backLogin();
+	}
 	document.getElementById(
 		'welcome'
 	).innerHTML = `Vítejte ${sessionStorage.getItem('name')}`;
@@ -40,8 +43,8 @@ async function loggedIn() {
 
 	if (data.stav != 'ok') {
 		location.href = '/';
-		sessionStorage.setItem('admin', data.admin);
 	}
+	sessionStorage.setItem('admin', data.admin);
 }
 async function admin() {
 	location.href = 'admin';

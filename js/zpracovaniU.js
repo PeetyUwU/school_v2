@@ -7,7 +7,8 @@ const requestIp = require('request-ip');
 const USER_FILE = './json/users.json';
 
 function hash(heslo) {
-	let hashing = heslo + '§ny.a@OwO=/';
+	let hashing =
+		'>sdw<wasfx*awts{]}[!?luv' + heslo + '$nya.$/OwO$_OvO--_Denysa|';
 	return crypto.createHash('sha256').update(hashing).digest('hex');
 }
 function GetToken() {

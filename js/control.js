@@ -30,42 +30,58 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 			}
 		}
 
-		let grade = 6;
+		let points = 6;
 		if (one == 'snows') {
 			one = 'succes';
 		} else {
 			one = 'misstake';
-			grade--;
+			points--;
 		}
 		if (two == 'will meet' || two == "'ll meet") {
 			two = 'succes';
 		} else {
 			two = 'misstake';
-			grade--;
+			points--;
 		}
 		if (three == 'miss') {
 			three = 'succes';
 		} else {
 			three = 'misstake';
-			grade--;
+			points--;
 		}
 		if (four == "won't lose" || four == 'will not lose') {
 			four = 'succes';
 		} else {
 			four = 'misstake';
-			grade--;
+			points--;
 		}
 		if (five == 'am') {
 			five = 'succes';
 		} else {
 			five = 'misstake';
-			grade--;
+			points--;
 		}
 		if (six == 'will play' || six == "'ll play") {
 			six = 'succes';
 		} else {
 			six = 'misstake';
-			grade--;
+			points--;
+		}
+		let grade;
+		if (points == 6) {
+			grade = 1;
+		}
+		if (points == 5) {
+			grade = 2;
+		}
+		if (points == 4) {
+			grade = 3;
+		}
+		if (points == 3) {
+			grade = 4;
+		}
+		if (points <= 2) {
+			grade = 5;
 		}
 		let answers = [
 			{ correct: one },
@@ -76,7 +92,8 @@ exports.zpracovaniPozadavku = async function (req, par, res) {
 			{ correct: six },
 		];
 		let ans = {};
-		ans.point = grade;
+		ans.point = points;
+		ans.grade = grade;
 		ans.name = name;
 		ans.date = Date.now();
 		ans.work = par.work;

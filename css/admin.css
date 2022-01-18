@@ -122,6 +122,22 @@ main {
 	border-radius: 20px;
 	margin: 10px;
 }
+.deleteUsers {
+	max-width: 800px;
+	width: 500px;
+	border: solid 6px var(--border);
+	box-shadow: 0 0 50px var(--border);
+	padding: 30px;
+	border-radius: 20px;
+	margin: 10px;
+}
+.removeAdmins {
+	border: solid 6px var(--border);
+	box-shadow: 0 0 50px var(--border);
+	padding: 30px;
+	border-radius: 20px;
+	margin: 10px;
+}
 .ul {
 	list-style: none;
 }
@@ -147,6 +163,12 @@ main {
 	color: lightgreen;
 }
 #form.invalid {
+	color: red;
+}
+#form4.valid {
+	color: lightgreen;
+}
+#form4.invalid {
 	color: red;
 }
 .btn {

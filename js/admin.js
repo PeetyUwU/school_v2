@@ -59,8 +59,8 @@ async function loggedIn() {
 		location.href = '/';
 	}
 }
-async function admin() {
-	if (checkValid == false) {
+async function admin(inp, form) {
+	if (checkValid(inp, form) == false) {
 		return;
 	}
 	let emailAdd = document.getElementById('emailAdd').value;
@@ -78,8 +78,7 @@ async function admin() {
 		alert(data.chyba);
 	}
 }
-function checkValid(Email) {
-	let form = document.getElementById('form');
+function checkValid(Email, form) {
 	let email = Email.value;
 	let pattern = /^[^ ]+@zsceskemladeze.cz$/;
 
@@ -129,13 +128,15 @@ async function loadGrades() {
 function mapZnamka(filter) {
 	let mapped = '';
 	for (let f of filter) {
+		let dt = new Date(f.date);
 		mapped =
 			mapped +
 			`<li class="list">
 			<h3>${f.name || 'Error'}</h3>
 			<p>Cvičení: ${f.work || 'Error'}</p>
+			<p>Známka: ${f.grade || 'Error'}</p>
 			<p>Počet správných odpovědí: ${f.point || 'Error'}</p>
-			<p>Datum vyplnění: ${f.date || 'Error'}</p>
+			<p>Datum vyplnění: ${dt.toLocaleString() || 'Error'}</p>
 			</li>`;
 	}
 	document.getElementById('form2').innerHTML = mapped;
@@ -149,6 +150,7 @@ function showGrades() {
 			`<li class="list">
 			<h3>${z.name || 'Error'}</h3>
 			<p>Cvičení: ${z.work || 'Error'}</p>
+			<p>Známka: ${z.grade || 'Error'}</p>
 			<p>Počet správných odpovědí: ${z.point || 'Error'}</p>
 			<p>Datum vyplnění: ${dt.toLocaleString() || 'Error'}</p>
 			</li>`;
@@ -188,4 +190,24 @@ function showUsers() {
 			</li>`;
 	});
 	document.getElementById('form3').innerHTML = mapped;
+}
+
+async function removeAdmin(inp, form) {
+	if (checkValid(inp, form) == false) {
+		return;
+	}
+	let email = document.getElementById('removeAdmin').value;
+
+	let url = '/admin/removeAdmin';
+	let body = {};
+	body.email = email;
+	let response = await fetch(url, {
+		method: 'POST',
+		body: JSON.stringify(body),
+	});
+	let data = await response.json();
+
+	if (data.stav != 'ok') {
+		alert(data.chyba);
+	}
 }

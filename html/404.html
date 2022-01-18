@@ -69,6 +69,7 @@
             color: #333;
             font-size: 50px;
             text-decoration: none;
+            cursor: pointer;
         }
         body.dark-theme a {
             color: #fff;
@@ -98,6 +99,7 @@
             }
             body a {
             font-size: 40px;
+            cursor: pointer;
         }
         .err {
             font-size: 100px !important;
@@ -111,6 +113,9 @@
 		document.body.classList.toggle('load');
 	}
         }
+        function back() {
+            history.back()
+        }
     </script>
     <title>404</title>
 </head>
@@ -122,7 +127,7 @@
         <h1 class="err">404</h1>
     </main>
     <footer>
-        <a href="/">Vrátit se zpět</a>
+        <a onclick="back()">Vrátit se zpět</a>
     </footer>
     
 </body>

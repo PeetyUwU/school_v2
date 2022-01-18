@@ -44,10 +44,13 @@ async function register() {
 
 	if (checkValid() == false) return;
 
-	if (name == '' && password == '') {
+	if (name == '' || password == '') {
 		passTxt.innerHTML = 'Prosím zadejte jméno a heslo';
 		passTxt.style.color = 'red';
 		return;
+	}
+	if (name.length < 4) {
+		alert('Moc krátké jméno');
 	}
 
 	if (password != password2) {
@@ -76,5 +79,5 @@ async function register() {
 }
 
 async function login() {
-	location.replace('/');
+	location.href = '/';
 }

@@ -44,6 +44,9 @@ header {
 	justify-content: space-around;
 	align-items: center;
 }
+header h1 {
+	margin-top: 10px;
+}
 .menu ul {
 	position: absolute;
 	background: var(--txt);
@@ -154,6 +157,22 @@ footer {
 .btn:active {
 	transform: scale(1.1);
 	box-shadow: 6px 5px 6px var(--shadow);
+}
+#online-status {
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 30px;
+	color: #000;
+	transition: all 2.5s;
+	opacity: 0;
+}
+#online-status.online {
+	opacity: 1;
+	background-color: lightgreen;
+}
+#online-status.offline {
+	opacity: 1;
+	background-color: red;
 }
 .input {
 	width: 250px;

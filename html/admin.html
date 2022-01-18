@@ -26,10 +26,9 @@
         <div class="addAdmin">
             <h1>Přidat administrátora</h1>
             <h2>Email:</h2>
-            <input type="email" placeholder="příklad@zsceskemladeze.cz" class="input" id="emailAdd" onkeyup="checkValid(this)">
+            <input type="email" placeholder="příklad@zsceskemladeze.cz" class="input" id="emailAdd" onkeyup="checkValid(this, document.getElementById('form'))">
             <p id="form"><br></p>
-            <br>
-            <button onclick="admin()" class="btn">Přidat</button>
+            <button onclick="admin(document.getElementById('emailAdd'), document.getElementById('form'))" class="btn">Přidat</button>
         </div>
         <div class="znamky">
             <h1>Známky</h1>
@@ -74,6 +73,18 @@
             <br>
             <button class="btn" onclick="showUsers()">Načíst</button>
             <ul id="form3" class="ul"></ul>
+        </div>
+        <div class="deleteUsers">
+            <h1>Smazat uživatele</h1>
+            <input type="email" class="input" id="deleteUser" placeholder="příklad@zsceskemladeze.cz">
+            <br>
+            <button class="btn" onclick="deleteUser()">Smazat</button>
+        </div>
+        <div class="removeAdmins">
+            <h1>Odebrat administrátora</h1>
+            <input type="email" id="removeAdmin" class="input" placeholder="příklad@zsceskemladeze.cz" onkeyup="checkValid(this, document.getElementById('form4'))">
+            <p id="form4"><br></p>
+            <button class="btn" onclick="removeAdmin(document.getElementById('emailAdd'), document.getElementById('form4'))">Odebrat</button>
         </div>
     </main>
     <footer>
