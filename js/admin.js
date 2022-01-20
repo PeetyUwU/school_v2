@@ -57,6 +57,8 @@ async function loggedIn() {
 
 	if (data.stav != 'ok') {
 		location.href = '/';
+		sessionStorage.setItem('admin', data.admin);
+		sessionStorage.clear();
 	}
 }
 async function admin(inp, form) {
